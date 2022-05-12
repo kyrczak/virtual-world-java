@@ -7,7 +7,7 @@ public class GUI {
         this.window = new JFrame();
         this.window.setVisible(true);
         this.window.setSize(500,500);
-        this.window.add(new JButton("organizm"));
+        this.window.add(new JButton("organism"));
         this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
