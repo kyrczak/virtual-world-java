@@ -7,22 +7,24 @@ public abstract class Organism {
     protected Point position;
     protected int force;
     protected int initiative;
-    protected int age = 0;
+    protected int age;
     protected boolean isAlive = true;
-    protected char sign;
-    protected String name;
     protected World world;
 
-    public Organism(Point position, int force, int initiative, char sign, String name, World world) {
+    public Organism(Point position, int force, int initiative,int age, World world) {
         this.position = position;
         this.force = force;
         this.initiative = initiative;
-        this.sign = sign;
-        this.name = name;
         this.world = world;
+        this.age = age;
+    }
+    public Organism(Point position, World world) {
+        this.position = position;
+        this.world = world;
+        this.age = 0;
     }
     public abstract void action();
-    public abstract boolean collision();
+    public abstract boolean collision(Organism attacker);
     public abstract boolean isSameSpecies(Organism other);
     public abstract void createOrganism(Point position, World world);
 
@@ -37,7 +39,7 @@ public abstract class Organism {
     }
 
     public void draw() {
-
+        //TODO Drawing organisms
     }
 
     public int getForce() {
@@ -64,6 +66,14 @@ public abstract class Organism {
         return world;
     }
 
+    public String getName() {
+        return "Organism";
+    }
+
+    public char getSign() {
+        return '?';
+    }
+
     public void reproduce() {
         ArrayList<Point> emptyPositions = freePositions();
         Point chosenPosition = new Point();
@@ -85,6 +95,10 @@ public abstract class Organism {
         }
     }
 
+    public boolean isInBounds(Point proposed) {
+        return (proposed.getX() >= 0 && proposed.getY() >=0 && proposed.getX() < this.getWorld().getWidth() && proposed.getY() < this.getWorld().getHeight() );
+    }
+
     public ArrayList<Point> freePositions() {
         ArrayList<Point> freePositionsArray = new ArrayList<>();
         Point[] steps = {
@@ -95,11 +109,27 @@ public abstract class Organism {
         };
 
         for(Point step : steps) {
-            if(this.getWorld().getOrganism(step) == false && this.isInBounds(step)) {
+            if(this.getWorld().getOrganism(step) != null && this.isInBounds(step)) {
                 freePositionsArray.add(step);
             }
         }
 
         return freePositionsArray;
+    }
+
+    public void setPosition(Point position) {
+        this.position = position;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setForce(int force) {
+        this.force = force;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 }
