@@ -36,8 +36,7 @@ public class Antelope extends Animal {
 
     @Override
     public void move() {
-        Random rand = new Random();
-        int direction = rand.nextInt(7);
+        int direction = this.getWorld().getRand().nextInt(8);
         Point proposedPosition = this.proposedPosition(direction);
         if(this.isInBounds(proposedPosition)) {
             Organism org = this.getWorld().getOrganism(proposedPosition);
@@ -73,8 +72,7 @@ public class Antelope extends Animal {
 
     @Override
     public boolean collision(Organism attacker) {
-        Random rand = new Random();
-        boolean attack = rand.nextBoolean();
+        boolean attack = this.getWorld().getRand().nextBoolean();
         if(attack) {
             return this.fight(attacker);
         }

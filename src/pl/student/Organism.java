@@ -39,7 +39,7 @@ public abstract class Organism {
     }
 
     public void draw() {
-        //TODO Drawing organisms
+        this.getWorld().plane[this.getPosition().getY()][this.getPosition().getX()] = this.getSign();
     }
 
     public int getForce() {
@@ -84,8 +84,7 @@ public abstract class Organism {
 
     public boolean chooseFreePosition(Point position,ArrayList<Point> pointArrayList) {
         if(!pointArrayList.isEmpty()) {
-            Random rand = new Random();
-            int randomNumber = rand.nextInt(pointArrayList.size());
+            int randomNumber = this.getWorld().getRand().nextInt(pointArrayList.size());
             position.setX(pointArrayList.get(randomNumber).getX());
             position.setY(pointArrayList.get(randomNumber).getY());
             return true;
@@ -109,7 +108,7 @@ public abstract class Organism {
         };
 
         for(Point step : steps) {
-            if(this.getWorld().getOrganism(step) != null && this.isInBounds(step)) {
+            if(this.getWorld().getOrganism(step) == null && this.isInBounds(step)) {
                 freePositionsArray.add(step);
             }
         }

@@ -36,8 +36,7 @@ public class Fox extends Animal {
 
     @Override
     public void move() {
-        Random rand = new Random();
-        int direction = rand.nextInt(3);
+        int direction = this.getWorld().getRand().nextInt(4);
         Point proposedPosition = this.proposedPosition(direction);
         if(this.isInBounds(proposedPosition)) {
             Organism org = this.getWorld().getOrganism(proposedPosition);

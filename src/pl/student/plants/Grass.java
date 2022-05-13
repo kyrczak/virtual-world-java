@@ -7,7 +7,7 @@ public class Grass extends Plant {
         super(position,world);
         this.force = 0;
     }
-    public Grass(Point position, int force, int intiative, int age, World world) {
+    public Grass(Point position, int force, int age, World world) {
         super(position, force, age, world);
     }
 

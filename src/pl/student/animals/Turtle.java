@@ -36,8 +36,7 @@ public class Turtle extends Animal {
 
     @Override
     public void move() {
-        Random rand = new Random();
-        int direction = rand.nextInt(15);
+        int direction = this.getWorld().getRand().nextInt(16);
         if(direction<4) {
             Point proposedPosition = this.proposedPosition(direction);
             if(this.isInBounds(proposedPosition)) {

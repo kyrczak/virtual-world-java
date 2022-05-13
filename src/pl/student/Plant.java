@@ -32,8 +32,7 @@ public class Plant extends Organism{
 
     }
     public void grow() {
-        Random rand = new Random();
-        int chance = rand.nextInt(growthRate);
+        int chance = this.getWorld().getRand().nextInt(this.growthRate);
         if(chance == 0) {
             this.reproduce();
         }
