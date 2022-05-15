@@ -28,6 +28,7 @@ public class World {
         this.journal = new ArrayList<>();
         this.rand = new Random();
     }
+
     public World(int height, int width, ArrayList<Organism> organismsArrayList) {
         this.height = height;
         this.width = width;
@@ -53,6 +54,10 @@ public class World {
 
     public int getKey() {
         return key;
+    }
+
+    public String getName() {
+        return "World";
     }
 
     public ArrayList<Organism> getOrganismsArrayList() {
@@ -148,11 +153,10 @@ public class World {
     public void nextTurn() {
         this.sortOrganism();
         for(Organism org : this.getOrganismsArrayList()) {
-            if(org.getAlive()) {
+            if (org.getAlive()) {
                 org.action();
             }
         }
-        this.sortOrganism();
         this.drawGame();
         this.increaseTurn();
     }
