@@ -5,6 +5,8 @@ import pl.student.Organism;
 import pl.student.Point;
 import pl.student.World;
 
+import java.awt.*;
+
 public class Sheep extends Animal {
     public Sheep(Point position, World world) {
         super(position,world);
@@ -23,6 +25,11 @@ public class Sheep extends Animal {
     @Override
     public String getName() {
         return "Sheep";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0xfada8e);
     }
 
     @Override

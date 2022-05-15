@@ -5,6 +5,8 @@ import pl.student.Plant;
 import pl.student.Point;
 import pl.student.World;
 
+import java.awt.*;
+
 public class Belladonna extends Plant {
     public Belladonna(Point position, World world) {
         super(position,world);
@@ -22,6 +24,11 @@ public class Belladonna extends Plant {
     @Override
     public String getName() {
         return "Belladonna";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0x131670);
     }
 
     @Override

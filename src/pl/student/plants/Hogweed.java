@@ -2,6 +2,9 @@ package pl.student.plants;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 import pl.student.*;
+import pl.student.Point;
+
+import java.awt.*;
 
 public class Hogweed extends Plant {
     public Hogweed(Point position, World world) {
@@ -20,6 +23,11 @@ public class Hogweed extends Plant {
     @Override
     public String getName() {
         return "Hogweed";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0xff00ff);
     }
 
     @Override

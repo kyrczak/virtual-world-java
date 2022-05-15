@@ -1,6 +1,9 @@
 package pl.student.plants;
 
 import pl.student.*;
+import pl.student.Point;
+
+import java.awt.*;
 
 public class Grass extends Plant {
     public Grass(Point position, World world) {
@@ -19,6 +22,11 @@ public class Grass extends Plant {
     @Override
     public String getName() {
         return "Grass";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0x00ff00);
     }
 
     @Override

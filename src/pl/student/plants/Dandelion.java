@@ -1,7 +1,9 @@
 package pl.student.plants;
 
 import pl.student.*;
+import pl.student.Point;
 
+import java.awt.*;
 import java.util.Random;
 
 public class Dandelion extends Plant {
@@ -21,6 +23,11 @@ public class Dandelion extends Plant {
     @Override
     public String getName() {
         return "Dandelion";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0xfff203);
     }
 
     @Override

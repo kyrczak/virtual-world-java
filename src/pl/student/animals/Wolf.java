@@ -1,6 +1,9 @@
 package pl.student.animals;
 
 import pl.student.*;
+import pl.student.Point;
+
+import java.awt.*;
 
 public class Wolf extends Animal{
     public Wolf(Point position, World world) {
@@ -20,6 +23,11 @@ public class Wolf extends Animal{
     @Override
     public String getName() {
         return "Wolf";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0x616161);
     }
 
     @Override

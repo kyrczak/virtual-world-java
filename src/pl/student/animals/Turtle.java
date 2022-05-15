@@ -1,7 +1,9 @@
 package pl.student.animals;
 
 import pl.student.*;
+import pl.student.Point;
 
+import java.awt.*;
 import java.util.Random;
 
 public class Turtle extends Animal {
@@ -22,6 +24,11 @@ public class Turtle extends Animal {
     @Override
     public String getName() {
         return "Turtle";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0x1e3d24);
     }
 
     @Override

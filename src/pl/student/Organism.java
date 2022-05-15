@@ -1,5 +1,6 @@
 package pl.student;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -9,6 +10,7 @@ public abstract class Organism {
     protected int initiative;
     protected int age;
     protected boolean isAlive = true;
+    protected Color color;
     protected World world;
 
     public Organism(Point position, int force, int initiative,int age, World world) {
@@ -17,11 +19,13 @@ public abstract class Organism {
         this.initiative = initiative;
         this.world = world;
         this.age = age;
+        this.color = new Color(255,255,255);
     }
     public Organism(Point position, World world) {
         this.position = position;
         this.world = world;
         this.age = 0;
+        this.color = new Color(255,255,255);
     }
     public abstract void action();
     public abstract boolean collision(Organism attacker);
@@ -72,6 +76,10 @@ public abstract class Organism {
 
     public char getSign() {
         return '?';
+    }
+
+    public Color getColor() {
+        return color;
     }
 
     public void reproduce() {

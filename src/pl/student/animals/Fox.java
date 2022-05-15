@@ -1,7 +1,9 @@
 package pl.student.animals;
 
 import pl.student.*;
+import pl.student.Point;
 
+import java.awt.*;
 import java.util.Random;
 
 public class Fox extends Animal {
@@ -10,8 +12,8 @@ public class Fox extends Animal {
         this.force = 3;
         this.initiative = 7;
     }
-    public Fox(Point position, int force, int intiative, int age, World world) {
-        super(position, force,intiative,age, world);
+    public Fox(Point position, int force, int initiative, int age, World world) {
+        super(position, force,initiative,age, world);
     }
 
     @Override
@@ -24,6 +26,10 @@ public class Fox extends Animal {
         return "Fox";
     }
 
+    @Override
+    public Color getColor() {
+        return new Color(0xDC2A00);
+    }
     @Override
     public boolean isSameSpecies(Organism other) {
         return other instanceof Fox;

@@ -1,7 +1,9 @@
 package pl.student.animals;
 
 import pl.student.*;
+import pl.student.Point;
 
+import java.awt.*;
 import java.util.Random;
 
 public class Antelope extends Animal {
@@ -22,6 +24,11 @@ public class Antelope extends Animal {
     @Override
     public String getName() {
         return "Antelope";
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(0x963700);
     }
 
     @Override
