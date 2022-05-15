@@ -10,6 +10,7 @@ public class World {
     private int height;
     private int width;
     private int turn = 0;
+    private boolean isHumanAlive;
     private Keys key;
     private Random rand;
     public char[][] plane;
@@ -29,6 +30,7 @@ public class World {
         this.organismsToRemove = new ArrayList<>();
         this.journal = new ArrayList<>();
         this.rand = new Random();
+        this.isHumanAlive = false;
     }
 
     public World(int height, int width, ArrayList<Organism> organismsArrayList) {
@@ -113,6 +115,9 @@ public class World {
     public void sortOrganism() {
         for(Organism org : this.getOrganismsArrayList()) {
             if(!org.getAlive()) {
+                if(org instanceof Human) {
+                    this.setHumanAlive(false);
+                }
                 this.organismsToRemove.add(org);
             }
         }
@@ -214,5 +219,12 @@ public class World {
             }
         }
         this.addAwaitingOrganisms();
+    }
+
+    public void setHumanAlive(boolean humanAlive) {
+        isHumanAlive = humanAlive;
+    }
+    public boolean getHumanAlive() {
+        return this.isHumanAlive;
     }
 }

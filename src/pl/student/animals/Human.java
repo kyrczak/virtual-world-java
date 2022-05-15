@@ -14,12 +14,14 @@ public class Human extends Animal {
         super(position,world);
         this.force = 5;
         this.initiative = 4;
+        this.world.setHumanAlive(true);
     }
     public Human(Point position, World world,int force, int initiative, int age, int abilityCooldown, int abilityTime, boolean isAbilityActive) {
         super(position,force,initiative,age,world);
         this.abilityCooldown = abilityCooldown;
         this.abilityTime = abilityTime;
         this.isAbilityActive = isAbilityActive;
+        this.world.setHumanAlive(true);
     }
 
     public void setAbilityActive(boolean abilityActive) {

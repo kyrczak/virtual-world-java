@@ -13,7 +13,7 @@ public class GameBoard extends JPanel {
         this.setLayout(new GridLayout(game.getWorld().getHeight(),game.getWorld().getWidth(),0,0));
         for(int i = 0; i<game.getWorld().getHeight(); i++) {
             for(int j = 0; j<game.getWorld().getWidth(); j++) {
-                this.add(new Tile(new Point(j,i)));
+                this.add(new Tile(new Point(j,i),this.game));
             }
         }
     }
