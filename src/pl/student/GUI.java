@@ -15,7 +15,7 @@ public class GUI extends JFrame implements KeyListener {
     private JournalPanel journalPanel;
 
     private int width = 900;
-    private int height = 1200;
+    private int height = 1000;
     public GUI(Game game) {
         this.game = game;
         this.setSize(width,height);
@@ -32,16 +32,18 @@ public class GUI extends JFrame implements KeyListener {
         this.menu = new Menu(game);
         this.board = new GameBoard(game);
         this.journalPanel = new JournalPanel(game);
+        this.board.setPreferredSize(new Dimension(600,600));
 
         c.gridx=0;
         c.gridy=0;
         this.add(menu,c);
         c.gridx=0;
-        c.gridwidth=3;
         c.gridy=1;
+        c.fill=GridBagConstraints.NONE;
         this.add(board,c);
         c.gridx=0;
         c.gridy=2;
+        c.fill=GridBagConstraints.BOTH;
         this.add(journalPanel,c);
 
         //TODO Journal

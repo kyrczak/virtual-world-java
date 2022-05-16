@@ -3,6 +3,7 @@ package pl.student;
 import java.util.Random;
 
 public class Animal extends Organism{
+    private int reproductionChance = 6;
     public Animal(Point position, int force, int initiative,int age, World world) {
         super(position, force, initiative,age, world);
     }
@@ -39,7 +40,9 @@ public class Animal extends Organism{
                 this.setPosition(proposedPosition);
             }
             else if(this.isSameSpecies(org)) {
-                this.reproduce();
+                if(this.getWorld().getRand().nextInt(this.reproductionChance)==0) {
+                    this.reproduce();
+                }
             }
             else {
                 if(org.collision(this)) {

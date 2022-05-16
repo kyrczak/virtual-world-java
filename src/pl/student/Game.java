@@ -25,9 +25,9 @@ public class Game {
         this.drawGameBoard();
     }
 
-    public Game(World world) {
-        this.world = world;
-        this.world.addAwaitingOrganisms();
+    public Game(int width, int height) {
+        this.world = new World(height,width);
+        this.world.randNewOrganisms();
         this.gui = new GUI(this);
         this.drawGameBoard();
     }
@@ -176,6 +176,8 @@ public class Game {
                 }
                 newWorld.addAwaitingOrganisms();
                 this.setWorld(newWorld);
+                this.getGui().dispose();
+                this.gui = new GUI(this);
                 this.clearGameBoard();
                 this.drawGameBoard();
             }
