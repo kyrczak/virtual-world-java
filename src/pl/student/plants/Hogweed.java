@@ -45,7 +45,7 @@ public class Hogweed extends Plant {
     @Override
     public boolean collision(Organism attacker) {
         attacker.setAlive(false);
-        return this.fight(attacker);
+        return false;
     }
     public void killAround() {
         Point[] positionsAround = {

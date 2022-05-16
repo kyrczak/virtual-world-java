@@ -14,8 +14,8 @@ public class GUI extends JFrame implements KeyListener {
     private Game game;
     private JournalPanel journalPanel;
 
-    private int width = 600;
-    private int height = 800;
+    private int width = 900;
+    private int height = 1200;
     public GUI(Game game) {
         this.game = game;
         this.setSize(width,height);

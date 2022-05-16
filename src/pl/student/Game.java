@@ -19,7 +19,7 @@ public class Game {
     private World world;
 
     public Game() {
-        this.world = new World(25,25);
+        this.world = new World(30,30);
         this.world.randNewOrganisms();
         this.gui = new GUI(this);
         this.drawGameBoard();
