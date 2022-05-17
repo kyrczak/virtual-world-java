@@ -58,7 +58,6 @@ public class Hogweed extends Plant {
             if(this.getWorld().getOrganism(position)!=null && this.isInBounds(position)) {
                 if(this.isAnimal(this.getWorld().getOrganism(position))) {
                     this.getWorld().getOrganism(position).setAlive(false);
-                    this.getWorld().addActivity("Hogweed killed "+this.getWorld().getOrganism(position).getName());
                 }
             }
         }

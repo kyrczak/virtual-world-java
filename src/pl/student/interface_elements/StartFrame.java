@@ -4,8 +4,6 @@ import pl.student.Game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class StartFrame extends JFrame {
     private JTextField width;
@@ -13,6 +11,7 @@ public class StartFrame extends JFrame {
     private JButton newGame;
     private JButton loadGame;
     public StartFrame() {
+        this.setTitle("Patryk Korczak - 188618 - Informatyka");
         this.width = new JTextField();
         this.height = new JTextField();
         this.newGame = new JButton("New game");
@@ -23,9 +22,18 @@ public class StartFrame extends JFrame {
         c.fill = GridBagConstraints.HORIZONTAL;
         this.newGame.addActionListener(e -> {
             if(!width.getText().isEmpty() && !height.getText().isEmpty()) {
-                new Game(Integer.parseInt(width.getText()), Integer.parseInt(height.getText()));
-                setVisible(false);
-                dispose();
+                try {
+                    new Game(Integer.parseInt(width.getText()), Integer.parseInt(height.getText()));
+                    setVisible(false);
+                    dispose();
+                }
+                catch(NumberFormatException n) {
+                    JFrame errorFrame = new JFrame();
+                    errorFrame.setSize(200,200);
+                    errorFrame.setLayout(new FlowLayout());
+                    errorFrame.add(new JLabel("Please provide numbers only"));
+                    errorFrame.setVisible(true);
+                }
             }
         });
         this.loadGame.addActionListener(e -> {
@@ -36,7 +44,7 @@ public class StartFrame extends JFrame {
                 this.setVisible(false);
                 this.dispose();
         });
-        this.setSize(400,400);
+        this.setSize(700,400);
         c.gridx=0;
         c.gridy=0;
         c.weighty=1;

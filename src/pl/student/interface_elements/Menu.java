@@ -41,9 +41,19 @@ public class Menu extends JPanel{
                 game.loadGame();
             }
         });
-        this.setLayout(new FlowLayout(FlowLayout.CENTER));
-        this.add(nextTurn);
-        this.add(saveGame);
-        this.add(loadGame);
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.weighty=1;
+        c.weightx=1;
+        c.gridx=0;
+        c.gridy=0;
+        this.add(nextTurn,c);
+        c.gridx=1;
+        c.gridy=0;
+        this.add(saveGame,c);
+        c.gridx=2;
+        c.gridy=0;
+        this.add(loadGame,c);
     }
 }

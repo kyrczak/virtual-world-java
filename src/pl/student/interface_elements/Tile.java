@@ -21,6 +21,7 @@ public class Tile extends JButton implements ActionListener {
         this.setFocusable(false);
         this.addActionListener(this);
         this.setText(" ");
+        this.setToolTipText(this.position.toString());
     }
 
     @Override

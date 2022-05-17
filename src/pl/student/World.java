@@ -162,13 +162,13 @@ public class World {
     }
 
     public void nextTurn() {
-        this.sortOrganism();
         for(Organism org : this.getOrganismsArrayList()) {
             if (org.getAlive()) {
                 org.action();
             }
         }
         //this.drawGame();
+        this.sortOrganism();
         this.increaseTurn();
     }
 
@@ -218,7 +218,7 @@ public class World {
                 }
             }
         }
-        this.addAwaitingOrganisms();
+        this.sortOrganism();
     }
 
     public void setHumanAlive(boolean humanAlive) {

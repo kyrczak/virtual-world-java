@@ -3,7 +3,7 @@ package pl.student;
 import java.util.Random;
 
 public class Animal extends Organism{
-    private int reproductionChance = 6;
+    private int reproductionChance = 14;
     public Animal(Point position, int force, int initiative,int age, World world) {
         super(position, force, initiative,age, world);
     }
@@ -46,7 +46,9 @@ public class Animal extends Organism{
             }
             else {
                 if(org.collision(this)) {
-                    this.getWorld().addActivity("Organism "+org.getName()+" was killed by " + this.getName());
+                    if(org instanceof Plant == false) {
+                        this.getWorld().addActivity("Organism " + org.getName() + " was killed by " + this.getName());
+                    }
                     this.setPosition(proposedPosition);
                 }
             }

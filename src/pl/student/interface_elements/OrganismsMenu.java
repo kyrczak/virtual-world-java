@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class OrganismsMenu extends JFrame implements ActionListener{
-    private JComboBox organismsList;
+    private JComboBox<String> organismsList;
     private JButton addButton;
     private Point position;
     private Game game;
@@ -33,7 +33,7 @@ public class OrganismsMenu extends JFrame implements ActionListener{
                 "Belladonna",
                 "Hogweed"
         };
-        this.organismsList = new JComboBox(organisms);
+        this.organismsList = new JComboBox<>(organisms);
         this.addButton = new JButton("Add");
         this.addButton.setFocusable(false);
         this.addButton.addActionListener(this);

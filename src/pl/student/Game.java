@@ -75,9 +75,12 @@ public class Game {
     }
 
     public void gameNextTurn() {
+        this.clearGameBoard();
+        this.drawGameBoard();
         this.getWorld().nextTurn();
         this.clearGameBoard();
         this.drawGameBoard();
+        this.getWorld().setKey(Keys.DEFAULT);
     }
 
     public void loadGame() {

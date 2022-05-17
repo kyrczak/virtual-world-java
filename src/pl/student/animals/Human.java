@@ -73,8 +73,11 @@ public class Human extends Animal {
                     this.setPosition(proposedPosition);
                 }
                 else if(org.collision(this)){
-                    this.getWorld().addActivity("Organism "+org.getName() + " was killed by "+ this.getName());
+                    if(org instanceof Plant == false) {
+                        this.getWorld().addActivity("Organism " + org.getName() + " was killed by " + this.getName());
+                    }
                     this.setPosition(proposedPosition);
+
                 }
             }
         }

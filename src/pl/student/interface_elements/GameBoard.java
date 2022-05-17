@@ -10,10 +10,16 @@ public class GameBoard extends JPanel {
     public GameBoard(Game game) {
         this.game = game;
 
-        this.setLayout(new GridLayout(game.getWorld().getHeight(),game.getWorld().getWidth(),0,0));
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx=1;
+        c.weighty=1;
         for(int i = 0; i<game.getWorld().getHeight(); i++) {
             for(int j = 0; j<game.getWorld().getWidth(); j++) {
-                this.add(new Tile(new Point(j,i),this.game));
+                c.gridx = j;
+                c.gridy = i;
+                this.add(new Tile(new Point(j,i),this.game),c);
             }
         }
     }
