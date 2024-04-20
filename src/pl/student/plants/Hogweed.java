@@ -1,8 +1,7 @@
 package pl.student.plants;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
-import pl.student.*;
 import pl.student.Point;
+import pl.student.*;
 
 import java.awt.*;
 
